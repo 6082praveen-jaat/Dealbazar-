@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ff6b00"><meta name="description" content="DealBazar - smart deals and shopping">
+<link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg">
+<title>DealBazar</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f6f7f9;color:#1f2937;font-family:Arial,sans-serif}.app{max-width:760px;margin:auto;min-height:100vh;background:#f6f7f9}
+header{position:sticky;top:0;z-index:10;background:#ff6b00;color:white;padding:15px 16px 13px;box-shadow:0 2px 10px #0002}.top{display:flex;justify-content:space-between;align-items:center}.logo{font-size:25px;font-weight:800}.install{border:0;border-radius:9px;padding:8px 10px;font-weight:700;color:#e85d00}.tag{font-size:12px;margin-top:3px;opacity:.9}.search{width:100%;margin-top:12px;padding:12px 14px;border:0;border-radius:12px;font-size:15px;outline:0}
+main{padding:16px;padding-bottom:82px}h2{font-size:19px;margin:18px 0 10px}.hero{background:linear-gradient(135deg,#ff6b00,#ff9a45);color:white;border-radius:18px;padding:20px;margin-bottom:16px}.hero h1{margin:0 0 6px;font-size:25px}.hero p{margin:0 0 14px;font-size:13px}.hero button{border:0;border-radius:10px;padding:10px 14px;font-weight:800}
+.cats{display:flex;gap:8px;overflow:auto;padding-bottom:4px}.cat{border:0;background:#fff;padding:9px 14px;border-radius:22px;white-space:nowrap;box-shadow:0 2px 7px #ddd}.cat.active{background:#ff6b00;color:white}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.card{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 3px 12px #ddd}.pic{height:155px;background:#fff1e8;display:flex;align-items:center;justify-content:center}.pic img{width:100%;height:100%;object-fit:cover}.info{padding:11px}.name{font-weight:700;font-size:14px;min-height:36px}.price{font-size:18px;font-weight:800;color:#e85d00;margin:6px 0}.old{font-size:11px;color:#999;text-decoration:line-through;margin-left:5px}.deal{display:block;text-align:center;text-decoration:none;background:#ff6b00;color:white;border-radius:9px;padding:10px;font-size:13px;font-weight:800}.section{background:white;border-radius:15px;padding:15px;box-shadow:0 2px 10px #ddd}.section p{font-size:14px;line-height:1.55;color:#555}.contact a{display:block;text-decoration:none;color:#e85d00;font-weight:700;margin:9px 0}.empty{text-align:center;grid-column:1/-1;padding:25px;color:#777}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:20;background:white;border-top:1px solid #ddd;display:flex;justify-content:center}.navin{max-width:760px;width:100%;display:flex}.navbtn{flex:1;border:0;background:white;padding:10px 4px;font-size:12px}.navbtn b{display:block;font-size:20px}.page{display:none}.page.active{display:block}
+@media(min-width:761px){nav{left:50%;transform:translateX(-50%);width:760px}.navin{width:760px}}
+</style></head>
+<body><div class="app">
+<header><div class="top"><div><div class="logo">🛍️ DealBazar</div><div class="tag">Smart shopping • Trending deals</div></div><button id="install" class="install" hidden>Install</button></div><input id="search" class="search" placeholder="Search products..."></header>
+<main>
+<section id="home" class="page active">
+<div class="hero"><h1>🔥 Today's Best Deals</h1><p>Discover useful products at attractive prices.</p><button onclick="document.getElementById('deals').scrollIntoView({behavior:'smooth'})">Explore Deals</button></div>
+<h2>🏷️ Categories</h2><div class="cats"><button class="cat active" data-cat="All">All</button><button class="cat" data-cat="Fashion">Fashion</button><button class="cat" data-cat="Electronics">Electronics</button><button class="cat" data-cat="Home">Home</button></div>
+<h2 id="deals">⚡ Real Deal Sections</h2><div id="grid" class="grid"></div>
+</section>
+<section id="about" class="page"><h2>ℹ️ About DealBazar</h2><div class="section"><p>DealBazar is a shopping-discovery app concept for finding useful products and deals in one place.</p><p>Some buttons may use affiliate links. Affiliate availability, approval, commission and eligibility depend on the individual program.</p></div><h2>📞 Contact</h2><div class="section contact"><a href="mailto:contact@dealbazar.example">✉️ contact@dealbazar.example</a><p>Replace this demo email with your real business/contact email before publishing.</p></div></section>
+</main>
+<nav><div class="navin"><button class="navbtn" data-page="home"><b>🏠</b>Home</button><button class="navbtn" data-page="about"><b>ℹ️</b>About / Contact</button></div></nav>
+</div>
+<script>
+const products=[
+{name:"Casual Cotton Shirt",cat:"Fashion",price:"₹499",old:"₹999",img:"https://images.unsplash.com/photo-1603252110481-7ba873bf42ab?auto=format&fit=crop&w=700&q=80",url:"https://example.com"},
+{name:"Wireless Earbuds",cat:"Electronics",price:"₹799",old:"₹1,499",img:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=80",url:"https://example.com"},
+{name:"Minimal Table Lamp",cat:"Home",price:"₹399",old:"₹699",img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80",url:"https://example.com"},
+{name:"Everyday Sneakers",cat:"Fashion",price:"₹899",old:"₹1,599",img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80",url:"https://example.com"}
+];
+let category="All";
+const grid=document.getElementById("grid"),search=document.getElementById("search");
+function render(){let q=search.value.toLowerCase().trim();let list=products.filter(p=>(category==="All"||p.cat===category)&&p.name.toLowerCase().includes(q));grid.innerHTML=list.length?list.map(p=>`<article class="card"><div class="pic"><img src="${p.img}" alt="${p.name}" loading="lazy"></div><div class="info"><div class="name">${p.name}</div><div class="price">${p.price}<span class="old">${p.old}</span></div><a class="deal" href="${p.url}" target="_blank" rel="noopener">View Deal</a></div></article>`).join(""):'<div class="empty">No products found.</div>'}
+document.querySelectorAll(".cat").forEach(b=>b.onclick=()=>{document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));b.classList.add("active");category=b.dataset.cat;render()});
+search.oninput=render;document.querySelectorAll(".navbtn").forEach(b=>b.onclick=()=>{document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById(b.dataset.page).classList.add("active");window.scrollTo(0,0)});
+let deferred;window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferred=e;document.getElementById("install").hidden=false});document.getElementById("install").onclick=async()=>{if(deferred){deferred.prompt();await deferred.userChoice;deferred=null;document.getElementById("install").hidden=true}};
+if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+render();
+</script></body></html>
