@@ -31,7 +31,26 @@ const products=[
 {name:"Wireless Earbuds",cat:"Electronics",price:"₹799",old:"₹1,499",img:"https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
 {name:"Minimal Table Lamp",cat:"Home",price:"₹399",old:"₹699",img:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
 {name:"Everyday Sneakers",cat:"Fashion",price:"₹899",old:"₹1,599",img:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80",url:"https://google.com"}
-];
+];{name:"Winter Puffer Jacket",cat:"Fashion",price:"₹1,499",old:"₹2,999",img:"https://images.unsplash.com/photo-1544923246-77307dd654cb?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Cable Knit Sweater",cat:"Fashion",price:"₹899",old:"₹1,799",img:"https://images.unsplash.com/photo-1576871337622-98d48d1cf531?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Woolen Overcoat",cat:"Fashion",price:"₹1,999",old:"₹3,999",img:"https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Fleece Pullover Hoodie",cat:"Fashion",price:"₹799",old:"₹1,599",img:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Winter Beanie Cap",cat:"Fashion",price:"₹299",old:"₹599",img:"https://images.unsplash.com/photo-1510598969022-c4c6c5d05769?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Classic Leather Jacket",cat:"Fashion",price:"₹2,499",old:"₹4,999",img:"https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Turtleneck Sweater",cat:"Fashion",price:"₹749",old:"₹1,499",img:"https://images.unsplash.com/photo-1611911813383-6776af44e3fe?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Woolen Winter Scarf",cat:"Fashion",price:"₹399",old:"₹799",img:"https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Denim Jacket",cat:"Fashion",price:"₹1,199",old:"₹2,199",img:"https://images.unsplash.com/photo-1576995853123-5a10305d93c0?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Thermal Fleece Joggers",cat:"Fashion",price:"₹599",old:"₹1,199",img:"https://images.unsplash.com/photo-1552346144-8e40c2b79640?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Waterproof Snow Boots",cat:"Fashion",price:"₹1,899",old:"₹3,499",img:"https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Fleece Utility Vest",cat:"Fashion",price:"₹899",old:"₹1,799",img:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Knitted Cardigan",cat:"Fashion",price:"₹999",old:"₹1,999",img:"https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Leather Winter Gloves",cat:"Fashion",price:"₹499",old:"₹999",img:"https://images.unsplash.com/photo-1517150604307-3c5a40e2a1e5?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Oversized Poncho Sweater",cat:"Fashion",price:"₹1,099",old:"₹2,099",img:"https://images.unsplash.com/photo-1608234808654-2a8875faa7fd?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Corduroy Winter Pants",cat:"Fashion",price:"₹849",old:"₹1,699",img:"https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Quilted Puffer Jacket",cat:"Fashion",price:"₹1,599",old:"₹2,999",img:"https://images.unsplash.com/photo-1548126032-079a0fb0099d?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Woolen Socks (Pack of 3)",cat:"Fashion",price:"₹299",old:"₹599",img:"https://images.unsplash.com/photo-1582966772680-860e372bb558?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Chelsea Winter Boots",cat:"Fashion",price:"₹1,799",old:"₹3,299",img:"https://images.unsplash.com/photo-1638247025967-b4e38f787b76?auto=format&fit=crop&w=700&q=80",url:"https://google.com"},
+{name:"Padded Gilet Jacket",cat:"Fashion",price:"₹1,299",old:"₹2,599",img:"https://images.unsplash.com/photo-1516762689617-e1cffcef479d?auto=format&fit=crop&w=700&q=80",url:"https://google.com"}
 let category="All";
 const grid=document.getElementById("grid"),search=document.getElementById("search");
 function render(){let q=search.value.toLowerCase().trim();let list=products.filter(p=>(category==="All"||p.cat===category)&&p.name.toLowerCase().includes(q));grid.innerHTML=list.length?list.map(p=>`<article class="card"><div class="pic"><img src="${p.img}" alt="${p.name}" loading="lazy"></div><div class="info"><div class="name">${p.name}</div><div class="price">${p.price}<span class="old">${p.old}</span></div><a class="deal" href="${p.url}" target="_blank" rel="noopener">View Deal</a></div></article>`).join(""):'<div class="empty">No products found.</div>'}
